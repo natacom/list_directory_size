@@ -108,5 +108,6 @@ if __name__ == '__main__':
     depth = -1 if len(sys.argv) < 3 else sys.argv[2]
     # calculate directory size recursively
     info = get_dir_size_tree(os.path.abspath(wd))
-    os.remove(output_file)
+    if os.path.exists(output_file):
+        os.remove(output_file)
     info.print_all(depth_limit=int(depth))
